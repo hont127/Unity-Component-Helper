@@ -1,0 +1,17 @@
+﻿-What is Cursor Mode?
+
+Cursor Mode will use the current object in the hierarchy panel
+.
+
+-How do use the IsIntelligentFindParent?
+
+When you copy multiple components you will find that the parent object has not changed,
+so..open this toggle, parent object will change accordingly
+.
+
+-How to copy multiple target
+?
+
+This is very simple, first set component to copy list, and then open the cursor mode
+select multiple objects. and click "paste" button
+ complete!
