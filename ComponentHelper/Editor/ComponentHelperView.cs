@@ -301,6 +301,7 @@ namespace Hont
                 if (isBreakFlag) break;
             }
 
+            if (GUILayout.Button("Reverse Copy List")) mComponentTool.ReverseCopyList();
             if (GUILayout.Button("Clear Copy List")) mComponentTool.ClearCopyList();
         }
 

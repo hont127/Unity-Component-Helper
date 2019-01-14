@@ -123,14 +123,34 @@ namespace Hont
             mCopySelList.Clear();
         }
 
+        public void ReverseCopyList()
+        {
+            var temp = mCopySelList.Reverse().ToArray();
+            mCopySelList.Clear();
+            foreach (var item in temp)
+                mCopySelList.Add(item);
+
+            temp = mWillRemoveList.Reverse().ToArray();
+            mWillRemoveList.Clear();
+            foreach (var item in temp)
+                mWillRemoveList.Add(item);
+
+            temp = mWaitCopyList.Reverse().ToArray();
+            mWaitCopyList.Clear();
+            foreach (var item in temp)
+                mWaitCopyList.Add(item);
+        }
+
         #region Component Operation Methods.
 
         public void ComponentToTop(Component comp)
         {
             var go = comp.gameObject;
 
+#if !(UNITY_2018_3_OR_NEWER)
             if (!AssetDatabase.IsMainAsset(go))
                 PrefabUtility.DisconnectPrefabInstance(go);
+#endif
 
             for (int j = 0; j < go.GetComponents<Component>().Length; j++)
             {
@@ -143,8 +163,10 @@ namespace Hont
         {
             var go = comp.gameObject;
 
+#if !(UNITY_2018_3_OR_NEWER)
             if (!AssetDatabase.IsMainAsset(go))
                 PrefabUtility.DisconnectPrefabInstance(go);
+#endif
 
             for (int j = 0; j < go.GetComponents<Component>().Length; j++)
             {
@@ -157,8 +179,10 @@ namespace Hont
         {
             var go = comp.gameObject;
 
+#if !(UNITY_2018_3_OR_NEWER)
             if (!AssetDatabase.IsMainAsset(go))
                 PrefabUtility.DisconnectPrefabInstance(go);
+#endif
 
             UnityEditorInternal.ComponentUtility.MoveComponentUp(comp);
             mLastOpComp = comp;
@@ -168,8 +192,10 @@ namespace Hont
         {
             var go = comp.gameObject;
 
+#if !(UNITY_2018_3_OR_NEWER)
             if (!AssetDatabase.IsMainAsset(go))
                 PrefabUtility.DisconnectPrefabInstance(go);
+#endif
 
             UnityEditorInternal.ComponentUtility.MoveComponentDown(comp);
             mLastOpComp = comp;
